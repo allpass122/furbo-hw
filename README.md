@@ -1,6 +1,7 @@
 ## How to run
 
 Already deployed on vercel: https://weogje41.vercel.app/
+
 If you want to run it locally, you can run `npm install` and `npm run dev`, just like a common next.js project.
 
 ## Tech Stack
@@ -16,8 +17,11 @@ If you want to run it locally, you can run `npm install` and `npm run dev`, just
 ## Roadmap or potential improvements
 
 ✅ RWD
+
 ✅ SSR
+
 ✅ A11Y
+
 ✅ SEO
 
 - add skeleton to improve user experience.
