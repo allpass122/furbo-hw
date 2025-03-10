@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [{ hostname: 'images.dog.ceo' }],
+    remotePatterns: [{ hostname: 'images.dog.ceo' }, { hostname: 'dog.ceo' }],
   },
 };
 

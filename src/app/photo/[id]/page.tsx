@@ -13,7 +13,7 @@ export default async function PhotoPage({
     <>
       <Image
         src={`${DOG_API_URL}${breed}/${name}`}
-        alt={`dog_image_${breed}_${name}`}
+        alt={`dog-image-${breed}-${name}`}
         fill
         objectFit="contain"
       />

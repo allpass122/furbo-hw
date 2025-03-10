@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 import { useCallback, useState } from 'react';
 
 export default function SearchBar() {
-  const [search, setSearch] = useQueryState('s');
+  const [search, setSearch] = useQueryState('s', { defaultValue: '' });
   const [inputValue, setInputValue] = useState(search ?? '');
 
   const debouncedSearch = useCallback(
@@ -18,7 +18,7 @@ export default function SearchBar() {
 
   return (
     <div className="border-[10px] border-primary bg-primary-background flex items-center justify-between">
-      <label htmlFor="search-input" className="flex items-center gap-1 p-1">
+      <label className="flex items-center gap-1 p-1">
         <SearchIcon className="h-4 w-4 cursor-pointer" />
         <input
           className="outline-none w-full bg-transparent"
