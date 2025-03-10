@@ -1,13 +1,13 @@
 'use client';
 
+import { debounce } from 'lodash';
 import { SearchIcon, XIcon } from 'lucide-react';
 import { useQueryState } from 'nuqs';
-import { debounce } from 'lodash';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export default function SearchBar() {
-  const [search, setSearch] = useQueryState('s', { defaultValue: '' });
+  const [, setSearch] = useQueryState('s', { defaultValue: '' });
   const inputRef = useRef<HTMLInputElement>(null);
 
   const debouncedSearch = useCallback(
