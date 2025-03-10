@@ -14,8 +14,11 @@
 - add transition to improve user experience.
 - app icon remove background.
 - corousel handle more keyboard events.
+- handle searchBar upper/lower case.
 
 ## Some notes
+
+- SearchBar with debounce implemented.
 
 - Regarding the search functionality, I decided to fetch all breeds first and then implement filtering through the search bar, since the total number of breeds remains relatively constant.
 

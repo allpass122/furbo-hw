@@ -2,7 +2,7 @@
 
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 const fadeAnimation = `
   @keyframes fadeIn {
@@ -71,14 +71,25 @@ export default function PhotoGrid({ photos }: { photos: string[] }) {
             <ChevronLeftIcon className="size-6 text-white lg:size-8" />
           </button>
           <div className="w-[min(80vh,80vw)] aspect-square relative">
-            <Image
-              key={photos[currIndex]}
-              src={photos[currIndex]}
-              alt={photos[currIndex]}
-              fill
-              sizes="100%"
-              className="animate-[fadeIn_0.3s_ease-in-out]"
-            />
+            <Suspense
+              fallback={
+                <Image
+                  src={'/bonk.jpeg'}
+                  alt={'placeholder'}
+                  fill
+                  sizes="100%"
+                />
+              }
+            >
+              <Image
+                key={photos[currIndex]}
+                src={photos[currIndex]}
+                alt={photos[currIndex]}
+                fill
+                sizes="100%"
+                className="animate-[fadeIn_0.3s_ease-in-out]"
+              />
+            </Suspense>
           </div>
           <button
             className="absolute right-2 lg:right-4 "

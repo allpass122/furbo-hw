@@ -10,9 +10,11 @@ export default function SearchBar() {
   const [inputValue, setInputValue] = useState(search ?? '');
 
   const debouncedSearch = useCallback(
-    debounce((value: string) => {
-      setSearch(value || null);
-    }, 1000),
+    (value: string) => {
+      debounce((searchValue: string) => {
+        setSearch(searchValue || null);
+      }, 1000)(value);
+    },
     [setSearch]
   );
 

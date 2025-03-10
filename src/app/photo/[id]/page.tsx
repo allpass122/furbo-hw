@@ -3,12 +3,8 @@ import Image from 'next/image';
 
 export default async function PhotoPage({
   params,
-  prev,
-  next,
 }: {
   params: Promise<{ id: string }>;
-  prev?: { id: string };
-  next?: { id: string };
 }) {
   const { id } = await params;
   const decodedId = decodeURIComponent(id);
