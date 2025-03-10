@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://weogje41.vercel.app/
+
+# Sitemaps
+Sitemap: https://weogje41.vercel.app/sitemap.xml

@@ -27,6 +27,7 @@ If you want to run it locally, you can run `npm install` and `npm run dev`, just
 - handle searchBar upper/lower case.
 - support dark mode.
 - improve performance in slow 3G network.
+- add more details sitemap config. e.g. dynamic routes.
 
 ## Some notes
 
