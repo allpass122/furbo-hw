@@ -2,6 +2,7 @@
 
 import { useBreadRandomPhoto } from '@/hooks/useBreadRandomPhoto';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 function Avatar({ src, breed }: { src: string; breed: string }) {
   return (
@@ -19,9 +20,13 @@ function Avatar({ src, breed }: { src: string; breed: string }) {
 
 export default function BreedCard({ breed }: { breed: string }) {
   const { data: randomImageUrl, isLoading } = useBreadRandomPhoto(breed);
+  const router = useRouter();
 
   return (
-    <div className="flex p-2 gap-4 items-center border-b border-primary-background">
+    <div
+      className="flex p-2 gap-4 items-center border-b border-primary-background hover:bg-primary/20 cursor-pointer"
+      onClick={() => router.push(`/${breed}`)}
+    >
       <Avatar src={isLoading ? '/bonk.jpeg' : randomImageUrl} breed={breed} />
       <span className="font-bold">{breed}</span>
     </div>

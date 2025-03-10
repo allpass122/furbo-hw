@@ -17,7 +17,7 @@ export default function SearchBar() {
   );
 
   return (
-    <div className="border-[10px] border-primary bg-primary-background flex items-center justify-between">
+    <div className="border-[10px] h-14 border-primary bg-primary-background flex items-center justify-between">
       <label className="flex items-center gap-1 p-1">
         <SearchIcon className="h-4 w-4 cursor-pointer" />
         <input
