@@ -3,8 +3,12 @@ import Image from 'next/image';
 
 export default async function PhotoPage({
   params,
+  prev,
+  next,
 }: {
   params: Promise<{ id: string }>;
+  prev?: { id: string };
+  next?: { id: string };
 }) {
   const { id } = await params;
   const decodedId = decodeURIComponent(id);
@@ -15,6 +19,7 @@ export default async function PhotoPage({
         src={`${DOG_API_URL}${breed}/${name}`}
         alt={`dog-image-${breed}-${name}`}
         fill
+        className="object-contain"
       />
     </>
   );

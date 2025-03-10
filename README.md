@@ -20,6 +20,8 @@
 
 - Bread images page use ssr to meet efficacy requirement, because this page will load a lot of images.
 
+- `/photo/[id]` page can be ignored. Plan to do Intercepting Routes but it's hard to integrate with prev/next image feature.
+
 - > When the user refreshes the web page by browser, the same search condition should be kept.
 
   not sure the meaning of this requirement, so I guess it means the result should be cached.

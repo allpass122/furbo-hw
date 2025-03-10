@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { z } from 'zod';
 import { unstable_cache } from 'next/cache';
+import { z } from 'zod';
+import PhotoGrid from './components/PhotoGrid';
 
 const breedPhotosSchema = z.object({
   message: z.array(z.string()),
@@ -34,17 +34,5 @@ export default async function BreedPage({
   const { breed } = await params;
   const photos = await getPhotos(breed);
 
-  return (
-    <div className="grid gap-4 p-4 grid-cols-3">
-      {photos?.map((photo) => (
-        <div
-          key={photo}
-          className="relative size-auto aspect-square"
-          aria-label="image-container"
-        >
-          <Image src={photo} alt={photo} fill />
-        </div>
-      ))}
-    </div>
-  );
+  return <PhotoGrid photos={photos} />;
 }
