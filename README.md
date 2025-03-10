@@ -13,8 +13,13 @@
 - add skeleton to improve user experience.
 - add transition to improve user experience.
 - app icon remove background.
-- useAllBreeds can be called in server.
 
 ## Some notes
 
 - Regarding the search functionality, I decided to fetch all breeds first and then implement filtering through the search bar, since the total number of breeds remains relatively constant.
+
+- Bread images page use ssr to meet efficacy requirement, because this page will load a lot of images.
+
+- > When the user refreshes the web page by browser, the same search condition should be kept.
+
+  not sure the meaning of this requirement, so I guess it means the result should be cached.

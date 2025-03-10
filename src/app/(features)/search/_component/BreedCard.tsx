@@ -7,13 +7,7 @@ import { useRouter } from 'next/navigation';
 function Avatar({ src, breed }: { src: string; breed: string }) {
   return (
     <div className="relative size-[60px]" aria-label="image-container">
-      <Image
-        src={src}
-        alt={breed}
-        fill
-        className="rounded-full"
-        objectFit="cover"
-      />
+      <Image src={src} alt={breed} fill className="rounded-full" />
     </div>
   );
 }

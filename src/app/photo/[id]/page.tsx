@@ -15,7 +15,6 @@ export default async function PhotoPage({
         src={`${DOG_API_URL}${breed}/${name}`}
         alt={`dog-image-${breed}-${name}`}
         fill
-        objectFit="contain"
       />
     </>
   );
