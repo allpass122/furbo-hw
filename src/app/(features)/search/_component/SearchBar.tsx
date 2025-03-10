@@ -4,6 +4,7 @@ import { SearchIcon, XIcon } from 'lucide-react';
 import { useQueryState } from 'nuqs';
 import { debounce } from 'lodash';
 import { useCallback, useRef, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export default function SearchBar() {
   const [search, setSearch] = useQueryState('s', { defaultValue: '' });
@@ -30,7 +31,10 @@ export default function SearchBar() {
         />
       </label>
       <button
-        className="text-primary-background p-1"
+        className={twMerge(
+          'text-primary-background p-1',
+          inputRef.current?.value === '' && 'hidden'
+        )}
         onClick={() => {
           if (inputRef.current) {
             inputRef.current.value = '';

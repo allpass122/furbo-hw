@@ -15,6 +15,7 @@
 - app icon remove background.
 - corousel handle more keyboard events.
 - handle searchBar upper/lower case.
+- support dark mode..
 
 ## Some notes
 

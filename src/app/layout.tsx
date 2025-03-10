@@ -28,11 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
         <ReactQueryProvider>
           <NuqsAdapter>
-            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              <div className="max-w-3/4 mx-auto border-x-2 border-neutral-200">
+                {children}
+              </div>
+            </Suspense>
           </NuqsAdapter>
         </ReactQueryProvider>
       </body>

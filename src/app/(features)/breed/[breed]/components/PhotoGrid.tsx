@@ -37,7 +37,7 @@ export default function PhotoGrid({ photos }: { photos: string[] }) {
       <style jsx global>
         {fadeAnimation}
       </style>
-      <div className="grid gap-4 p-4 grid-cols-3">
+      <div className="grid gap-4 p-4 grid-cols-3 lg:grid-cols-4">
         {photos?.map((photo, idx) => (
           <button
             key={photo}
