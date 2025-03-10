@@ -4,9 +4,17 @@ import { ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+const fadeAnimation = `
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+`;
+
 export default function PhotoGrid({ photos }: { photos: string[] }) {
   const [open, setOpen] = useState(false);
   const [currIndex, setCurrIndex] = useState(0);
+  // todo: handle left and right arrow keys
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -26,6 +34,9 @@ export default function PhotoGrid({ photos }: { photos: string[] }) {
 
   return (
     <>
+      <style jsx global>
+        {fadeAnimation}
+      </style>
       <div className="grid gap-4 p-4 grid-cols-3">
         {photos?.map((photo, idx) => (
           <button
@@ -42,7 +53,7 @@ export default function PhotoGrid({ photos }: { photos: string[] }) {
         ))}
       </div>
       {!!open && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 transition-all duration-300">
           <button
             className="absolute top-4 right-4 cursor-pointer"
             onClick={() => setOpen(false)}
@@ -50,32 +61,34 @@ export default function PhotoGrid({ photos }: { photos: string[] }) {
             <XIcon className="size-6 text-white" />
           </button>
           <button
-            className="absolute left-4 -translate-x-1/2 -translate-y-1/2"
+            className="absolute left-2 lg:left-4 "
             onClick={() =>
               setCurrIndex((curr) =>
                 curr === 0 ? photos.length - 1 : curr - 1
               )
             }
           >
-            <ChevronLeftIcon className="size-6 text-white" />
+            <ChevronLeftIcon className="size-6 text-white lg:size-8" />
           </button>
-          <div className="size-[250px] relative">
+          <div className="w-[min(80vh,80vw)] aspect-square relative">
             <Image
+              key={photos[currIndex]}
               src={photos[currIndex]}
               alt={photos[currIndex]}
               fill
               sizes="100%"
+              className="animate-[fadeIn_0.3s_ease-in-out]"
             />
           </div>
           <button
-            className="absolute right-4 translate-x-1/2 -translate-y-1/2"
+            className="absolute right-2 lg:right-4 "
             onClick={() =>
               setCurrIndex((curr) =>
                 curr === photos.length - 1 ? 0 : curr + 1
               )
             }
           >
-            <ChevronRightIcon className="size-6 text-white" />
+            <ChevronRightIcon className="size-6 text-white lg:size-8" />
           </button>
         </div>
       )}

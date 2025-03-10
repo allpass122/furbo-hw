@@ -13,6 +13,7 @@
 - add skeleton to improve user experience.
 - add transition to improve user experience.
 - app icon remove background.
+- corousel handle more keyboard events.
 
 ## Some notes
 
